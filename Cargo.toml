@@ -7,6 +7,3 @@ authors = ["me"]
 name = "crypto-utils"
 path = "src/lib.rs"
 
-[dependencies.openssl]
-git = "https://github.com/sfackler/rust-openssl.git"
-
