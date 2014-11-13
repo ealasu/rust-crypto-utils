@@ -59,15 +59,15 @@ fn write_thing<W>(w: &mut W, tag: u8, data: &[u8]) -> IoResult<()> where W: Writ
 ///   exponent1
 ///   exponent2
 ///   coefficient
-pub fn write_der(components: [&[u8], ..8]) -> IoResult<Vec<u8>> {
+pub fn write_der(components: [&[u8], ..8]) -> Vec<u8> {
     let mut seq_w = MemWriter::new();
-    try!(write_thing(&mut seq_w, 2, [0u8][]));
+    write_thing(&mut seq_w, 2, [0u8][]).unwrap();
     for data in components.iter() {
-        try!(write_thing(&mut seq_w, 2, *data));
+        write_thing(&mut seq_w, 2, *data).unwrap();
     }
     let mut w = MemWriter::new();
-    try!(write_thing(&mut w, 48, seq_w.unwrap()[]));
-    Ok(w.unwrap())
+    write_thing(&mut w, 48, seq_w.unwrap()[]).unwrap();
+    w.unwrap()
 }
 
 
