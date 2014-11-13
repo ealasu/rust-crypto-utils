@@ -1,0 +1,12 @@
+[package]
+name = "crypto-utils"
+version = "0.0.1"
+authors = ["me"]
+
+[lib]
+name = "crypto-utils"
+path = "src/lib.rs"
+
+[dependencies.openssl]
+git = "https://github.com/sfackler/rust-openssl.git"
+
